@@ -2,6 +2,7 @@ import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { isPlatformBrowser } from '@angular/common';
 export class AuthService {
   private apiUrl = 'http://localhost:5128/api/Auth'; // Backend API URL
 
-  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: any) { }
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: any, private router: Router) { }
 
   // ✅ Login API call
   login(credentials: any): Observable<any> {
@@ -45,15 +46,19 @@ export class AuthService {
 
   // ✅ Check if user is logged in
   isLoggedIn(): boolean {
-    return !!this.getToken();
+    const token = this.getToken();
+    return !!token; // If token exists, return true, else false
   }
 
+  
   // ✅ Logout user and clear storage
   logout(): void {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.removeItem('authToken');
       localStorage.removeItem('userRole');
-      sessionStorage.clear(); // Clear session storage as well
+      localStorage.removeItem('name'); // ✅ Ensure name is also cleared
+      sessionStorage.clear(); // ✅ Clear session storage as well
+      this.router.navigate(['/login']); // ✅ Redirect to login after logout
     }
   }
 

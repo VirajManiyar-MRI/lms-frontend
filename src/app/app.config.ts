@@ -7,12 +7,13 @@ import { LeadStatusComponent } from './components/lead-status/lead-status.compon
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'lead-management', component: LeadManagementComponent },
-  { path: 'lead-status', component: LeadStatusComponent },
-  { path: 'user-management', component: UserManagementComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'lead-management', component: LeadManagementComponent, canActivate: [AuthGuard] },
+  { path: 'lead-status', component: LeadStatusComponent, canActivate: [AuthGuard] },
+  { path: 'user-management', component: UserManagementComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },

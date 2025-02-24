@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Chart } from 'chart.js/auto';
 import { UserPerformanceService } from '../../services/userperformance.service';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth.service'; // ✅ Import AuthService for logout
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,11 +16,24 @@ import { RouterModule } from '@angular/router';
 export class DashboardComponent implements OnInit, AfterViewInit {
   managers: any[] = []; // Stores Manager Performance Data
 
-  constructor(private userPerformanceService: UserPerformanceService) { }
+  constructor(
+    private userPerformanceService: UserPerformanceService,
+    private authService: AuthService,
+    private router: Router // ✅ Inject AuthService
+  ) { }
+
+  // ✅ Logout function triggered when user clicks "Sign Out"
+  logout(): void {
+    this.authService.logout();
+  }
 
   // On component initialization, fetch manager performance data
   ngOnInit(): void {
-    this.loadManagerPerformance();
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/login']); // ✅ Redirect to login if not logged in
+    } else {
+      this.loadManagerPerformance();
+    }
   }
 
   // Fetch manager performance data from API
