@@ -1,0 +1,63 @@
+/* Neumorphic container */
+.auth-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 20px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  text-align: center;
+}
+
+/* Neumorphic input fields */
+.neumorphic-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: #e0e0e0;
+  box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Neumorphic button */
+.neumorphic-button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 10px;
+  background: #e0e0e0;
+  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.neumorphic-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.neumorphic-button:not(:disabled):hover {
+  box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
+
+/* Error message styling */
+.error-message {
+  color: #ff4d4d;
+  margin-bottom: 1rem;
+}
+.switch-auth {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.auth-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
