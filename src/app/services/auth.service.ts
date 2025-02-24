@@ -44,6 +44,12 @@ export class AuthService {
     return isPlatformBrowser(this.platformId) ? localStorage.getItem('userRole') : null;
   }
 
+  // ✅ Get User Name
+  getUserName(): string | null {
+    return isPlatformBrowser(this.platformId) ? localStorage.getItem('name') : null;
+  }
+
+
   // ✅ Check if user is logged in
   isLoggedIn(): boolean {
     const token = this.getToken();
@@ -71,3 +77,4 @@ export class AuthService {
     });
   }
 }
+

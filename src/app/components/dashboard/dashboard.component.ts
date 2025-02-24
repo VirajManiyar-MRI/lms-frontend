@@ -15,6 +15,8 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
   managers: any[] = []; // Stores Manager Performance Data
+  userName: string = ''; // ✅ Store user's name
+  userRole: string = ''; // ✅ Store user's role
 
   constructor(
     private userPerformanceService: UserPerformanceService,
@@ -33,7 +35,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       this.router.navigate(['/login']); // ✅ Redirect to login if not logged in
     } else {
       this.loadManagerPerformance();
+      this.loadUserData(); // ✅ Load user name & role
     }
+  }
+
+  // ✅ Load user name & role from AuthService
+
+  loadUserData(): void {
+    this.userName = this.authService.getUserName() || 'User'; // Default if null
+    this.userRole = this.authService.getUserRole() || 'Role'; // Default if null
   }
 
   // Fetch manager performance data from API
