@@ -1,12 +1,15 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.angular",
     "\\public",
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\lead-management"
+    "\\src\\app\\components\\dashboard",
+    "\\src\\app\\components\\lead-management",
+    "\\src\\app\\components\\login",
+    "\\src\\app\\components\\signup",
+    "\\src\\app\\services"
   ],
   "PreviewInSolutionExplorer": false
 }

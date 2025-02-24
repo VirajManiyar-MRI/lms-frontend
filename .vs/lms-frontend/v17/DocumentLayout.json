@@ -1,152 +1,129 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\",
+  "WorkspaceRootPath": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\lead-management\\lead-management.component.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\lead-management\\lead-management.component.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\components\\lead-management\\lead-management.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\lead-management\\lead-management.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\lead-management\\lead-management.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\dashboard\\dashboard.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\dashboard\\dashboard.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\dashboard\\dashboard.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\dashboard\\dashboard.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\app.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.config.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\main.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\services\\lead.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\services\\lead.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.routes.server.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.routes.server.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\services\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\services\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "DockedHeight": 219,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "lead-management.component.html",
-              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\components\\lead-management\\lead-management.component.html",
-              "RelativeDocumentMoniker": "src\\app\\components\\lead-management\\lead-management.component.html",
-              "ToolTip": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\components\\lead-management\\lead-management.component.html",
-              "RelativeToolTip": "src\\app\\components\\lead-management\\lead-management.component.html",
+              "DocumentIndex": 0,
+              "Title": "lead-management.component.scss",
+              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\lead-management\\lead-management.component.scss",
+              "RelativeDocumentMoniker": "src\\app\\components\\lead-management\\lead-management.component.scss",
+              "ToolTip": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\lead-management\\lead-management.component.scss",
+              "RelativeToolTip": "src\\app\\components\\lead-management\\lead-management.component.scss",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-02-17T07:09:49.147Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
+              "WhenOpened": "2025-02-22T18:34:07.726Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "app.component.ts",
-              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\app.component.ts",
-              "ToolTip": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.component.ts",
-              "RelativeToolTip": "src\\app\\app.component.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-02-17T07:06:44.689Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "app.component.html",
-              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.component.html",
-              "RelativeDocumentMoniker": "src\\app\\app.component.html",
-              "ToolTip": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.component.html",
-              "RelativeToolTip": "src\\app\\app.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Title": "lead-management.component.html",
+              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\lead-management\\lead-management.component.html",
+              "RelativeDocumentMoniker": "src\\app\\components\\lead-management\\lead-management.component.html",
+              "ToolTip": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\lead-management\\lead-management.component.html",
+              "RelativeToolTip": "src\\app\\components\\lead-management\\lead-management.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-02-17T06:01:39.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T18:34:03.34Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "main.ts",
-              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\main.ts",
-              "RelativeDocumentMoniker": "src\\main.ts",
-              "ToolTip": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\main.ts",
-              "RelativeToolTip": "src\\main.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-02-17T06:01:22.165Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\index.html",
-              "RelativeDocumentMoniker": "src\\index.html",
-              "ToolTip": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\index.html",
-              "RelativeToolTip": "src\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-02-17T06:00:44.729Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "app.config.ts",
-              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.config.ts",
+              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\app.config.ts",
               "RelativeDocumentMoniker": "src\\app\\app.config.ts",
-              "ToolTip": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.config.ts",
+              "ToolTip": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\app.config.ts",
               "RelativeToolTip": "src\\app\\app.config.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-02-17T05:59:56.719Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-21T13:02:49.781Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "app.routes.ts",
-              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.routes.ts",
-              "RelativeDocumentMoniker": "src\\app\\app.routes.ts",
-              "ToolTip": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.routes.ts",
-              "RelativeToolTip": "src\\app\\app.routes.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "auth.service.ts",
+              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\services\\auth.service.ts",
+              "RelativeDocumentMoniker": "src\\app\\services\\auth.service.ts",
+              "ToolTip": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\services\\auth.service.ts",
+              "RelativeToolTip": "src\\app\\services\\auth.service.ts",
+              "ViewState": "AgIAABwAAAAAAAAAAAAowEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-02-17T05:59:02.745Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-21T12:37:35.816Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "app.routes.server.ts",
-              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.routes.server.ts",
-              "RelativeDocumentMoniker": "src\\app\\app.routes.server.ts",
-              "ToolTip": "C:\\Users\\Viraj.Maniyar\\lms-frontend\\src\\app\\app.routes.server.ts",
-              "RelativeToolTip": "src\\app\\app.routes.server.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "lead.service.ts",
+              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\services\\lead.service.ts",
+              "RelativeDocumentMoniker": "src\\app\\services\\lead.service.ts",
+              "ToolTip": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\services\\lead.service.ts",
+              "RelativeToolTip": "src\\app\\services\\lead.service.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-02-17T05:57:16.498Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-21T10:22:46.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dashboard.component.html",
+              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\dashboard\\dashboard.component.html",
+              "RelativeDocumentMoniker": "src\\app\\components\\dashboard\\dashboard.component.html",
+              "ToolTip": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\dashboard\\dashboard.component.html",
+              "RelativeToolTip": "src\\app\\components\\dashboard\\dashboard.component.html",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAAADkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-02-19T07:18:44.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "dashboard.component.ts",
+              "DocumentMoniker": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\dashboard\\dashboard.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\components\\dashboard\\dashboard.component.ts",
+              "ToolTip": "C:\\Users\\Viraj.Maniyar\\Frontend\\lms-frontend\\src\\app\\components\\dashboard\\dashboard.component.ts",
+              "RelativeToolTip": "src\\app\\components\\dashboard\\dashboard.component.ts",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-02-19T09:34:48.328Z"
             }
           ]
         }

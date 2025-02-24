@@ -1,1 +1,67 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">LMS</div>
+    <nav>
+      <ul>
+        <li class="active">Dashboard</li>
+        <li routerLink="/lead-status">Lead Status</li>
+        <li routerLink="/lead-management"> Lead Management</li>
+        <li routerLink="/user-management"> User Management</li>
+        <li routerLink="/signout"> Sign Out</li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Navbar -->
+    <header class="navbar">
+      <input type="text" placeholder="Search..." class="search-bar" />
+      <div class="icons">
+        <span class="notification-icon">🔔</span>
+        <span class="profile-icon">👤 Viraj (Admin)</span>
+      </div>
+    </header>
+
+    <!-- Dashboard Metrics -->
+    <section class="dashboard-metrics">
+      <div class="metric">Total Leads: 1,250</div>
+      <div class="metric">New Leads Today: 12</div>
+      <div class="metric">Converted Leads: 375</div>
+      <div class="metric">Pending Follow-ups: 48</div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="charts-container">
+      <canvas id="bar-chart"></canvas>
+    </section>
+
+    <!-- Performance Section -->
+    <section class="performance">
+      <h2>Performance</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Manager Name</th>
+            <th>Leads Assigned</th>
+            <th>Leads Converted</th>
+            <th>Leads Lost</th>
+            <th>Conversion Rate (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let manager of managers; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ manager.ManagerName }}</td>
+            <td>{{ manager.LeadsAssigned }}</td>
+            <td>{{ manager.LeadsConverted }}</td>
+            <td>{{ manager.LeadsLost }}</td>
+            <td>{{ manager.ConversionPercentage | number:'1.2-2' }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>
