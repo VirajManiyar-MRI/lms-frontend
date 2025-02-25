@@ -8,6 +8,8 @@ import { UserManagementComponent } from './components/user-management/user-manag
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { AuthGuard } from './guards/auth.guard';
+import { importProvidersFrom } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -23,6 +25,7 @@ const routes: Routes = [
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(withFetch()), // ✅ Enables Fetch API for HttpClient
+    provideHttpClient(withFetch()), // ✅ Only need this once
+    importProvidersFrom(FormsModule) // ✅ Enables ngModel
   ]
 };

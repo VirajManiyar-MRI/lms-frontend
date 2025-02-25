@@ -60,13 +60,14 @@ export class AuthService {
   // ✅ Logout user and clear storage
   logout(): void {
     if (isPlatformBrowser(this.platformId)) {
-      localStorage.removeItem('authToken');
-      localStorage.removeItem('userRole');
-      localStorage.removeItem('name'); // ✅ Ensure name is also cleared
-      sessionStorage.clear(); // ✅ Clear session storage as well
-      this.router.navigate(['/login']); // ✅ Redirect to login after logout
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login']).then(() => {
+        window.location.reload(); // ✅ Ensures fresh state
+      });
     }
   }
+
 
   // ✅ Get headers with authorization token
   getAuthHeaders(): HttpHeaders {
