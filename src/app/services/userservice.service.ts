@@ -7,7 +7,7 @@ export interface User {
   name: string;
   email: string;
   role: string;
-  reportsTo?: number;
+  reportsTo?: number | null; // Ensuring it can be null if not applicable
 }
 
 @Injectable({
@@ -19,30 +19,35 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   private getAuthHeaders(): HttpHeaders {
-    const token = localStorage.getItem('authToken'); // ✅ Corrected key
+    const token = localStorage.getItem('authToken');
     return new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: token ? `Bearer ${token}` : ''
     });
   }
 
-
   getUsers(): Observable<User[]> {
-    const headers = this.getAuthHeaders();
-    return this.http.get<User[]>(this.apiUrl, { headers });
+    return this.http.get<User[]>(this.apiUrl, { headers: this.getAuthHeaders() });
   }
-
 
   getUser(id: number): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/${id}`, { headers: this.getAuthHeaders() });
   }
 
   createUser(user: Partial<User>): Observable<any> {
-    return this.http.post(this.apiUrl, user, { headers: this.getAuthHeaders() });
+    const payload = {
+      ...user,
+      reportsTo: user.reportsTo ?? null  // Ensure it's sent as null if undefined
+    };
+    return this.http.post(this.apiUrl, payload, { headers: this.getAuthHeaders() });
   }
 
   updateUser(id: number, user: Partial<User>): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${id}`, user, { headers: this.getAuthHeaders() });
+    const payload = {
+      ...user,
+      reportsTo: user.reportsTo ?? null  // Ensure it's sent as null if undefined
+    };
+    return this.http.put(`${this.apiUrl}/${id}`, payload, { headers: this.getAuthHeaders() });
   }
 
   deleteUser(id: number): Observable<any> {

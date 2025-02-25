@@ -12,99 +12,110 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./user-management.component.scss']
 })
 export class UserManagementComponent implements OnInit {
-  users: any[] = []; // Stores all users fetched from the backend
-  filteredUsers: any[] = []; // Stores users filtered by search or role
-  showUserModal = false; // Controls visibility of the user modal
-  isEditMode = false; // Determines whether the modal is in edit mode or add mode
+  users: any[] = [];
+  filteredUsers: any[] = [];
+  showUserModal = false;
+  isEditMode = false;
+  reportingUsers: any[] = [];
+  showReportsToDropdown = false;
 
-  // User form model (id set to undefined instead of null for type safety)
-  userForm = { id: undefined, name: '', email: '', role: '', password: '' };
+  userForm = { id: undefined, name: '', email: '', role: '', password: '', reportsTo: null as number | null };
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.loadUsers(); // Load users when component initializes
+    this.loadUsers();
+    console.log('Users Loaded:', this.users);
   }
 
-  // Fetch users from backend and store in users & filteredUsers arrays
   loadUsers() {
-    this.userService.getUsers().subscribe((data) => {
-      if (Array.isArray(data)) {  // ✅ Ensure it's an array
-        this.users = data;
-        this.filteredUsers = data;
-      } else {
-        console.error('Unexpected response format:', data);
-        this.users = [];
-        this.filteredUsers = [];
-      }
-    }, error => {
-      console.error('Error fetching users:', error);
-    });
+    this.userService.getUsers().subscribe((data: any) => {
+      this.users = data.$values ?? [];
+      this.filteredUsers = [...this.users];
+
+      console.log("Users Loaded:", this.users); // Debugging
+    }, error => console.error('Error fetching users:', error));
+  }
+
+  getReportingManager(id: number | string | null): string {
+    if (!id) return 'N/A'; // If null or undefined, return N/A
+
+    const numericId = Number(id); // Ensure it's a number
+    const manager = this.users.find(user => user.id === numericId);
+
+    return manager ? manager.name : 'N/A'; // Return manager name or N/A if not found
   }
 
 
-  // Handles search input event to filter users
   onSearch(event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    if (inputElement) {
-      const query = inputElement.value.toLowerCase();
-      this.filteredUsers = this.users.filter(user =>
-        user.name.toLowerCase().includes(query) ||
-        user.email.toLowerCase().includes(query)
-      );
-    }
+    const query = (event.target as HTMLInputElement).value.toLowerCase();
+    this.filteredUsers = this.users.filter(user =>
+      user.name.toLowerCase().includes(query) ||
+      user.email.toLowerCase().includes(query)
+    );
   }
 
-  // Handles role filter selection to update displayed users
   onFilterChange(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    if (selectElement) {
-      const role = selectElement.value;
-      this.filteredUsers = role ? this.users.filter(user => user.role === role) : this.users;
-    }
+    const role = (event.target as HTMLSelectElement).value.trim();
+    this.filteredUsers = role ? this.users.filter(user => user.role === role) : [...this.users];
   }
 
-  // Opens the user modal in add mode
   openAddUserModal() {
     this.isEditMode = false;
-    this.userForm = { id: undefined, name: '', email: '', role: '', password: '' };
+    this.userForm = { id: undefined, name: '', email: '', role: '', password: '', reportsTo: null };
     this.showUserModal = true;
   }
 
-  // Opens the user modal in edit mode and pre-fills the form
   openEditUserModal(user: any) {
     this.isEditMode = true;
     this.userForm = { ...user };
     this.showUserModal = true;
+    this.onRoleChange();
   }
 
-  // Saves user data (update if editing, create new if adding)
+  onRoleChange() {
+    if (this.userForm.role === 'Sales') {
+      this.reportingUsers = this.users.filter(user => user.role === 'Manager');
+      this.showReportsToDropdown = true;
+    } else if (this.userForm.role === 'Manager') {
+      this.reportingUsers = this.users.filter(user => user.role === 'Admin');
+      this.showReportsToDropdown = true;
+    } else {
+      this.showReportsToDropdown = false;
+      this.userForm.reportsTo = null;
+    }
+  }
+
   saveUser() {
-    if (this.isEditMode && this.userForm.id !== undefined) {
+    this.userForm.reportsTo = this.userForm.reportsTo ? Number(this.userForm.reportsTo) : null;
+
+    if (this.isEditMode) {
+      if (typeof this.userForm.id !== 'number') {
+        console.error('Error: User ID is missing or invalid while updating.');
+        return;
+      }
       this.userService.updateUser(this.userForm.id, this.userForm).subscribe(() => {
         this.loadUsers();
         this.closeUserModal();
+      }, error => {
+        console.error('Error updating user:', error);
       });
     } else {
-      const newUser = { ...this.userForm };
-      delete newUser.id; // Ensure id is removed for new user creation
-      this.userService.createUser(newUser).subscribe(() => {
+      this.userService.createUser(this.userForm).subscribe(() => {
         this.loadUsers();
         this.closeUserModal();
+      }, error => {
+        console.error('Error creating user:', error);
       });
     }
   }
 
-  // Deletes a user after confirmation
   deleteUser(id: number) {
     if (confirm('Are you sure you want to delete this user?')) {
-      this.userService.deleteUser(id).subscribe(() => {
-        this.loadUsers();
-      });
+      this.userService.deleteUser(id).subscribe(() => this.loadUsers());
     }
   }
 
-  // Closes the user modal
   closeUserModal() {
     this.showUserModal = false;
   }

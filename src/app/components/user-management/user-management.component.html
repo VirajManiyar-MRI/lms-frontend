@@ -1,5 +1,4 @@
 <div class="dashboard-container">
-  <!-- Sidebar -->
   <aside class="sidebar">
     <div class="logo">LMS</div>
     <nav>
@@ -13,9 +12,7 @@
     </nav>
   </aside>
 
-  <!-- Main Content -->
   <main class="main-content">
-    <!-- Navbar -->
     <header class="navbar">
       <input type="text"
              placeholder="Search..."
@@ -28,7 +25,6 @@
       </div>
     </header>
 
-    <!-- User Management Section -->
     <div class="user-management">
       <header class="user-header">
         <input type="text"
@@ -45,7 +41,6 @@
         <button (click)="openAddUserModal()" title="Add New User">➕ Add User</button>
       </header>
 
-      <!-- User Table -->
       <div class="user-table">
         <table>
           <thead>
@@ -53,6 +48,7 @@
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
+              <th>Reports To</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -61,6 +57,9 @@
               <td>{{ user.name }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.role }}</td>
+              <td>{{ getReportingManager(user.reportsTo) }}</td>
+
+
               <td>
                 <button (click)="openEditUserModal(user)" title="Edit User">✏️ Edit</button>
                 <button (click)="deleteUser(user.id)" title="Delete User">🗑 Delete</button>
@@ -71,30 +70,29 @@
       </div>
     </div>
 
-    <!-- User Modal -->
     <div *ngIf="showUserModal" class="modal">
       <div class="modal-content">
         <h2>{{ isEditMode ? 'Edit User' : 'Add User' }}</h2>
-        <label for="userName">Name:</label>
-        <input id="userName" [(ngModel)]="userForm.name" type="text" required />
+        <label>Name:</label>
+        <input [(ngModel)]="userForm.name" type="text" required />
 
-        <label for="userEmail">Email:</label>
-        <input id="userEmail" [(ngModel)]="userForm.email" type="email" required />
+        <label>Email:</label>
+        <input [(ngModel)]="userForm.email" type="email" required />
 
-        <label for="userRole">Role:</label>
-        <select id="userRole" [(ngModel)]="userForm.role">
+        <label>Role:</label>
+        <select [(ngModel)]="userForm.role" (change)="onRoleChange()">
           <option value="Admin">Admin</option>
           <option value="Manager">Manager</option>
           <option value="Sales">Sales</option>
         </select>
 
-        <label *ngIf="!isEditMode" for="userPassword">Password:</label>
-        <input *ngIf="!isEditMode" id="userPassword" [(ngModel)]="userForm.password" type="password" required />
+        <label *ngIf="showReportsToDropdown">Reports To:</label>
+        <select *ngIf="showReportsToDropdown" [(ngModel)]="userForm.reportsTo">
+          <option *ngFor="let user of reportingUsers" [value]="user.id">{{ user.name }}</option>
+        </select>
 
-        <div class="modal-actions">
-          <button (click)="saveUser()">{{ isEditMode ? 'Update' : 'Create' }}</button>
-          <button (click)="closeUserModal()">Cancel</button>
-        </div>
+        <button (click)="saveUser()">Save</button>
+        <button (click)="closeUserModal()">Cancel</button>
       </div>
     </div>
   </main>
