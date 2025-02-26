@@ -38,13 +38,14 @@ export class UserManagementComponent implements OnInit {
   }
 
   getReportingManager(id: number | string | null): string {
-    if (!id) return 'N/A'; // If null or undefined, return N/A
+    if (!id || isNaN(Number(id))) return 'N/A'; // Ensure it's a valid number
 
-    const numericId = Number(id); // Ensure it's a number
+    const numericId = Number(id);
     const manager = this.users.find(user => user.id === numericId);
 
     return manager ? manager.name : 'N/A'; // Return manager name or N/A if not found
   }
+
 
 
   onSearch(event: Event) {

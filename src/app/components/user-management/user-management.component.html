@@ -79,6 +79,10 @@
         <label>Email:</label>
         <input [(ngModel)]="userForm.email" type="email" required />
 
+        <label>Password:</label>
+        <input [(ngModel)]="userForm.password" type="password" required  />
+
+
         <label>Role:</label>
         <select [(ngModel)]="userForm.role" (change)="onRoleChange()">
           <option value="Admin">Admin</option>
