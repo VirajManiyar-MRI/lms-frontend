@@ -4,18 +4,16 @@
     <div class="logo">LMS</div>
     <nav>
       <ul>
-        <li routerLink="/dashboard"> Dashboard</li>
+        <li routerLink="/dashboard">Dashboard</li>
         <li class="active">Lead Status</li>
-        <li routerLink="/lead-management"> Lead Management</li>
-        <li routerLink="/user-management"> User Management</li>
-        <li routerLink="/signout" > Sign Out</li>
+        <li routerLink="/lead-management">Lead Management</li>
+        <li routerLink="/user-management">User Management</li>
+        <li routerLink="/signout">Sign Out</li>
       </ul>
     </nav>
   </aside>
 
-  <!-- Main Content -->
   <main class="main-content">
-    <!-- Navbar -->
     <header class="navbar">
       <input type="text" placeholder="Search..." class="search-bar" />
       <div class="icons">
@@ -24,7 +22,92 @@
       </div>
     </header>
 
-    <!-- Dashboard Metrics -->
-    
-    </main>
+   
+
+    <!-- Lead Status Table -->
+    <section class="lead-status-table">
+      <h2>Lead Status</h2>
+
+      <!-- "Add Lead" Button (top right above the table) -->
+      <div class="add-lead-container">
+        <button class="add-lead-button" (click)="openAddModal()">Add Lead</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Name</th>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Assigned To</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let lead of leads; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ lead.name }}</td>
+            <td>{{ lead.source }}</td>
+            <td>{{ lead.status }}</td>
+            <td>{{ getAssignedUserName(lead.assignedTo) }}</td>
+            <td>
+              <button (click)="openViewModal(lead)">View</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Modal for "Add Lead" and "View/Update Lead" -->
+    <div class="modal-overlay" *ngIf="isModalOpen">
+      <div class="modal-content">
+        <h2 *ngIf="modalMode === 'add'">Add Lead</h2>
+        <h2 *ngIf="modalMode === 'view'">Lead Details</h2>
+        <form>
+          <div class="form-group">
+            <label>Lead Name</label>
+            <input type="text" [(ngModel)]="modalLead.name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="modalLead.email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" [(ngModel)]="modalLead.phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label>Source</label>
+            <input type="text" [(ngModel)]="modalLead.source" name="source" required />
+          </div>
+          <div class="form-group">
+            <label>Status</label>
+            <select [(ngModel)]="modalLead.status" name="status">
+              <option value="New">New</option>
+              <option value="Contacted">Contacted</option>
+              <option value="Converted">Converted</option>
+              <option value="Lost">Lost</option>
+              <option value="FollowUp">Follow Up</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Assigned To</label>
+            <select [(ngModel)]="modalLead.assignedTo" name="assignedTo">
+              <option *ngFor="let userItem of (users | keyvalue)" [value]="userItem.key">
+                {{ userItem.value }}
+              </option>
+            </select>
+          </div>
+        </form>
+        <div class="modal-actions">
+          <button (click)="closeModal()">Close</button>
+          <button *ngIf="modalMode === 'add'" (click)="saveLead()">Save</button>
+          <button *ngIf="modalMode === 'view'" (click)="updateLead()">Update</button>
+          <button *ngIf="modalMode === 'view'" (click)="deleteLead()">Delete</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
 </div>

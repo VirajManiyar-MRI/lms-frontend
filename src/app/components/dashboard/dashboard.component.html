@@ -6,9 +6,9 @@
       <ul>
         <li class="active">Dashboard</li>
         <li routerLink="/lead-status">Lead Status</li>
-        <li routerLink="/lead-management"> Lead Management</li>
-        <li routerLink="/user-management"> User Management</li>
-        <li (click)="logout()" class="logout-button"> Sign Out</li>
+        <li routerLink="/lead-management">Lead Management</li>
+        <li routerLink="/user-management">User Management</li>
+        <li (click)="logout()" class="logout-button">Sign Out</li>
       </ul>
     </nav>
   </aside>
@@ -26,10 +26,12 @@
 
     <!-- Dashboard Metrics -->
     <section class="dashboard-metrics">
-      <div class="metric">Total Leads: 1,250</div>
-      <div class="metric">New Leads Today: 12</div>
-      <div class="metric">Converted Leads: 375</div>
-      <div class="metric">Pending Follow-ups: 48</div>
+      <div class="metric">Total Leads: {{ totalLeads }}</div>
+      <div class="metric">New Leads: {{ newLeads }}</div>
+      <div class="metric">Contacted Leads: {{ contactedLeads }}</div>
+      <div class="metric">Follow-up Leads: {{ followUpLeads }}</div>
+      <div class="metric">Converted Leads: {{ convertedLeads }}</div>
+      <div class="metric">Lost Leads: {{ lostLeads }}</div>
     </section>
 
     <!-- Charts Section -->
@@ -54,11 +56,16 @@
         <tbody>
           <tr *ngFor="let manager of managers; let i = index">
             <td>{{ i + 1 }}</td>
-            <td>{{ manager.ManagerName }}</td>
+            <!-- Use Username as the manager's name -->
+            <td>{{ manager.Username }}</td>
             <td>{{ manager.LeadsAssigned }}</td>
             <td>{{ manager.LeadsConverted }}</td>
-            <td>{{ manager.LeadsLost }}</td>
-            <td>{{ manager.ConversionPercentage | number:'1.2-2' }}%</td>
+            <!-- Compute lost leads as the difference -->
+            <td>{{ manager.LeadsAssigned - manager.LeadsConverted }}</td>
+            <!-- Calculate conversion rate -->
+            <td>
+              {{ manager.LeadsAssigned > 0 ? (manager.LeadsConverted / manager.LeadsAssigned) * 100 : 0 | number:'1.2-2' }}%
+            </td>
           </tr>
         </tbody>
       </table>

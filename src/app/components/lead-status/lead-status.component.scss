@@ -63,54 +63,33 @@
         display: flex;
         align-items: center;
         gap: 15px;
+      }
+    }
 
-        .notification-icon {
-          cursor: pointer;
+    .add-lead-container {
+      text-align: right;
+      margin-bottom: 10px;
+
+      .add-lead-button {
+        background: #1d3557;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background: #457b9d;
         }
-
-        .profile-icon {
-          font-weight: bold;
-        }
       }
     }
 
-    .dashboard-metrics {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      margin-bottom: 20px;
-
-      .metric {
-        background: white;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        flex: 1;
-        text-align: center;
-        font-weight: bold;
-      }
-    }
-
-    .charts-container {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-
-      #bar-chart, #pie-chart {
-        width: 50%;
-        height: 300px;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-    }
-
-    .sales-performance {
+    .lead-status-table {
       background: white;
       padding: 20px;
       border-radius: 8px;
-      margin-top: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
 
       h2 {
         margin-bottom: 15px;
@@ -120,7 +99,8 @@
         width: 100%;
         border-collapse: collapse;
 
-        th, td {
+        th,
+        td {
           border: 1px solid #ddd;
           padding: 10px;
           text-align: left;
@@ -129,6 +109,81 @@
         th {
           background: #1d3557;
           color: white;
+        }
+
+        button {
+          background: #1d3557;
+          color: white;
+          border: none;
+          padding: 5px 10px;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:hover {
+            background: #457b9d;
+          }
+        }
+      }
+    }
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 400px;
+      max-width: 90%;
+
+      h2 {
+        margin-top: 0;
+      }
+
+      form {
+        .form-group {
+          margin-bottom: 15px;
+
+          label {
+            display: block;
+            margin-bottom: 5px;
+          }
+
+          input,
+          select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          }
+        }
+      }
+
+      .modal-actions {
+        text-align: right;
+
+        button {
+          margin-left: 10px;
+          background: #1d3557;
+          color: white;
+          border: none;
+          padding: 8px 16px;
+          border-radius: 4px;
+          cursor: pointer;
+
+          &:hover {
+            background: #457b9d;
+          }
         }
       }
     }

@@ -11,9 +11,27 @@ export class LeadService {
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  // ✅ Fetch leads with authorization headers
+  // Fetch leads with authorization headers
   getLeads(): Observable<any> {
-    const headers = this.authService.getAuthHeaders(); // ✅ Add Authorization Header
+    const headers = this.authService.getAuthHeaders();
     return this.http.get(this.apiUrl, { headers });
+  }
+
+  // Create a new lead
+  createLead(lead: any): Observable<any> {
+    const headers = this.authService.getAuthHeaders();
+    return this.http.post(this.apiUrl, lead, { headers });
+  }
+
+  // Update an existing lead
+  updateLead(id: number, lead: any): Observable<any> {
+    const headers = this.authService.getAuthHeaders();
+    return this.http.put(`${this.apiUrl}/${id}`, lead, { headers });
+  }
+
+  // Delete a lead
+  deleteLead(id: number): Observable<any> {
+    const headers = this.authService.getAuthHeaders();
+    return this.http.delete(`${this.apiUrl}/${id}`, { headers });
   }
 }
