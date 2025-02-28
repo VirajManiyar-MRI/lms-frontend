@@ -95,6 +95,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   loadManagerPerformance(): void {
     this.userPerformanceService.getManagerPerformance().subscribe({
       next: (data) => {
+        console.log('Manager Performance:', data);  
         this.managers = data;
       },
       error: (err) => {

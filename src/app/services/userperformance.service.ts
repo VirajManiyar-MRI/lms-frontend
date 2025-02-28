@@ -14,6 +14,6 @@ export class UserPerformanceService {
   // Fetch manager performance data
   getManagerPerformance(): Observable<any> {
     const headers = this.authService.getAuthHeaders(); // Attach Auth Headers
-    return this.http.get(`${this.apiUrl}/managers`, { headers });
+    return this.http.get(`${this.apiUrl}`, { headers });
   }
 }
