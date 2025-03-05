@@ -2,7 +2,6 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter, Routes } from '@angular/router';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LeadManagementComponent } from './components/lead-management/lead-management.component';
 import { LeadStatusComponent } from './components/lead-status/lead-status.component';
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { LoginComponent } from './components/login/login.component';
@@ -13,7 +12,6 @@ import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'lead-management', component: LeadManagementComponent, canActivate: [AuthGuard] },
   { path: 'lead-status', component: LeadStatusComponent, canActivate: [AuthGuard] },
   { path: 'user-management', component: UserManagementComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
@@ -25,7 +23,7 @@ const routes: Routes = [
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(withFetch()), // ✅ Only need this once
-    importProvidersFrom(FormsModule) // ✅ Enables ngModel
+    provideHttpClient(withFetch()),
+    importProvidersFrom(FormsModule)
   ]
 };

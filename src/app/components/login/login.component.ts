@@ -33,21 +33,26 @@ export class LoginComponent {
     if (this.loginForm.invalid) return;
 
     this.loading = true; // Show loading state
+    this.errorMessage = ''; // Clear previous errors
 
     this.authService.login(this.loginForm.value).subscribe({
       next: (res) => {
         this.loading = false; // Hide loading
 
-        if (!res.authToken) {
-          this.errorMessage = 'Login failed. No token received.';
+        if (!res.authToken || !res.role) {
+          this.errorMessage = 'Login failed. Invalid response from server.';
           return;
         }
 
         // ✅ Store token & role in localStorage
-        this.authService.saveToken(res.authToken, res.role || 'Sales',res.name||"null");
+        this.authService.saveToken(res.authToken, res.role, res.name || 'null');
 
-        // ✅ Redirect to dashboard
-        this.router.navigate(['/dashboard']);
+        // ✅ Redirect based on role
+        if (res.role === 'Sales') {
+          this.router.navigate(['/lead-status']);
+        } else {
+          this.router.navigate(['/dashboard']);
+        }
       },
       error: (err) => {
         this.loading = false; // Hide loading

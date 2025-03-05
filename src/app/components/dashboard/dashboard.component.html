@@ -4,10 +4,9 @@
     <div class="logo">LMS</div>
     <nav>
       <ul>
-        <li class="active">Dashboard</li>
+        <li *ngIf="userRole !== 'Sales'" class="active">Dashboard</li>
         <li routerLink="/lead-status">Lead Status</li>
-                <!--<li routerLink="/lead-management">Lead Management</li>-->
-        <li routerLink="/user-management">User Management</li>
+        <li *ngIf="userRole !== 'Sales'" routerLink="/user-management">User Management</li>
         <li (click)="logout()" class="logout-button">Sign Out</li>
       </ul>
     </nav>
@@ -24,8 +23,8 @@
       </div>
     </header>
 
-    <!-- Dashboard Metrics -->
-    <section class="dashboard-metrics">
+    <!-- Dashboard Metrics (Visible only to Admins/Managers) -->
+    <section class="dashboard-metrics" *ngIf="userRole !== 'Sales'">
       <div class="metric">Total Leads: {{ totalLeads }}</div>
       <div class="metric">New Leads: {{ newLeads }}</div>
       <div class="metric">Contacted Leads: {{ contactedLeads }}</div>
@@ -34,13 +33,13 @@
       <div class="metric">Lost Leads: {{ lostLeads }}</div>
     </section>
 
-    <!-- Charts Section -->
-    <section class="charts-container">
+    <!-- Charts Section (Visible only to Admins/Managers) -->
+    <section class="charts-container" *ngIf="userRole !== 'Sales'">
       <canvas id="bar-chart"></canvas>
     </section>
 
-    <!-- Performance Section -->
-    <section class="performance">
+    <!-- Performance Section (Visible only to Admins/Managers) -->
+    <section class="performance" *ngIf="userRole !== 'Sales'">
       <h2>Performance</h2>
       <table>
         <thead>
@@ -56,13 +55,10 @@
         <tbody>
           <tr *ngFor="let manager of managers; let i = index">
             <td>{{ i + 1 }}</td>
-            <!-- Use Username as the manager's name -->
             <td>{{ manager.Username }}</td>
             <td>{{ manager.LeadsAssigned }}</td>
             <td>{{ manager.LeadsConverted }}</td>
-            <!-- Compute lost leads as the difference -->
             <td>{{ manager.LeadsAssigned - manager.LeadsConverted }}</td>
-            <!-- Calculate conversion rate -->
             <td>
               {{ manager.LeadsAssigned > 0 ? (manager.LeadsConverted / manager.LeadsAssigned) * 100 : 0 | number:'1.2-2' }}%
             </td>

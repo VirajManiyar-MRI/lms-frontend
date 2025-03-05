@@ -4,11 +4,12 @@
     <div class="logo">LMS</div>
     <nav>
       <ul>
-        <li routerLink="/dashboard">Dashboard</li>
+        <li *ngIf="userRole !== 'Sales'" routerLink="/dashboard">Dashboard</li>
         <li class="active">Lead Status</li>
-                <!--<li routerLink="/lead-management">Lead Management</li>-->
-        <li routerLink="/user-management">User Management</li>
-        <li routerLink="/signout">Sign Out</li>
+        <!--<li routerLink="/lead-management">Lead Management</li>-->
+        <li *ngIf="userRole !== 'Sales'" routerLink="/user-management">User Management</li>
+        <li (click)="logout()">Sign Out</li>
+
       </ul>
     </nav>
   </aside>
@@ -18,7 +19,7 @@
       <input type="text" placeholder="Search..." class="search-bar" />
       <div class="icons">
         <span class="notification-icon">🔔</span>
-        <span class="profile-icon">👤 Viraj (Admin)</span>
+        <span class="profile-icon">👤 {{ userName }} ({{ userRole }})</span>
       </div>
     </header>
 

@@ -15,12 +15,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
-  // Performance data from UserPerformanceController
-  managers: any[] = []; // Each object: { Username, LeadsAssigned, LeadsConverted, LastUpdated }
+  managers: any[] = [];
   userName: string = '';
   userRole: string = '';
 
-  // Dashboard metrics (from LeadController's leadCount)
   totalLeads: number = 0;
   newLeads: number = 0;
   contactedLeads: number = 0;
@@ -28,7 +26,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   convertedLeads: number = 0;
   lostLeads: number = 0;
 
-  // Chart data object
   barChartData: any = {};
 
   constructor(
@@ -47,8 +44,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       this.router.navigate(['/login']);
     } else {
       this.loadUserData();
-      this.loadDashboardMetrics(); // Load lead metrics from backend
-      this.loadManagerPerformance(); // Load manager performance table data
+      if (this.userRole !== 'Sales') {
+        this.loadDashboardMetrics();
+        this.loadManagerPerformance();
+      }
     }
   }
 
@@ -57,14 +56,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.userRole = this.authService.getUserRole() || 'Role';
   }
 
-  // Load metrics (lead counts) from the backend
   loadDashboardMetrics(): void {
     this.leadService.getLeads().subscribe({
       next: (data: any) => {
-        console.log('Dashboard Metrics:', data);
-        // Expecting data.leadCount to have keys: New, Contacted, FollowUp, Converted, Lost
         const leadCount = data.leadCount;
-        console.log(leadCount);
         this.newLeads = leadCount.new;
         this.contactedLeads = leadCount.contacted;
         this.followUpLeads = leadCount.followUp;
@@ -72,7 +67,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         this.lostLeads = leadCount.lost;
         this.totalLeads = this.newLeads + this.contactedLeads + this.followUpLeads + this.convertedLeads + this.lostLeads;
 
-        // Prepare bar chart data using these metrics
         this.barChartData = {
           labels: ['New', 'Contacted', 'Follow-up', 'Converted', 'Lost'],
           datasets: [{
@@ -82,7 +76,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
           }]
         };
 
-        // Render the chart after data is loaded
         this.renderCharts();
       },
       error: (err) => {
@@ -91,11 +84,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // Load manager performance data from your UserPerformanceController
   loadManagerPerformance(): void {
     this.userPerformanceService.getManagerPerformance().subscribe({
       next: (data) => {
-        console.log('Manager Performance:', data);  
         this.managers = data;
       },
       error: (err) => {
@@ -104,15 +95,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // After the view is initialized, chart rendering is triggered when metrics are loaded.
-  ngAfterViewInit(): void {
-    // Chart rendering is called in loadDashboardMetrics()
-  }
+  ngAfterViewInit(): void { }
 
   renderCharts(): void {
-    new Chart('bar-chart', {
-      type: 'bar',
-      data: this.barChartData
-    });
+    if (this.userRole !== 'Sales') {
+      new Chart('bar-chart', {
+        type: 'bar',
+        data: this.barChartData
+      });
+    }
   }
 }
