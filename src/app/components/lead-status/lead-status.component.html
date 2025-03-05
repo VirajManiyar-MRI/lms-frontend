@@ -6,10 +6,9 @@
       <ul>
         <li *ngIf="userRole !== 'Sales'" routerLink="/dashboard">Dashboard</li>
         <li class="active">Lead Status</li>
-        <!--<li routerLink="/lead-management">Lead Management</li>-->
+    <!--<li routerLink="/lead-management">Lead Management</li>-->
         <li *ngIf="userRole !== 'Sales'" routerLink="/user-management">User Management</li>
-        <li (click)="logout()">Sign Out</li>
-
+        <li routerLink="/signout">Sign Out</li>
       </ul>
     </nav>
   </aside>
